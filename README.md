@@ -4,6 +4,9 @@ This is a straightforward backend program to build a web API using **Django's RE
 # Automated API Documentation 
 This app includes an API that enables programmatic interaction with the application. You can access the API documentation at ([http://127.0.0.1:8000/swagger/](http://127.0.0.1:8000/swagger/))].
 
+![apidoc](https://github.com/phreak1703007/Color-Palettes-Backend/assets/62479964/aec95c5b-fcb1-4ae5-ab59-fea8db5199d2)
+
+
 # Key-Features:
 - **Palette Creation and Management**: The web API allows users to create, update, delete, and share color palettes with different combinations of dominant and accent colors. Users can also give their palettes a name and choose whether they want to make them public or private. The web API supports CRUD operations for palette objects and uses unique IDs to identify them.
 - **Authentication and User Accounts**: Users have the capability to log in and unlock enhanced functionalities. Notably, the registration process is omitted; solely a login mechanism is in place utilizing REST Framework's Browsable API authentication. Administrative privileges are granted to create users exclusively through the admin panel. Following this, users can then login and log out using the Browsable API interface.
