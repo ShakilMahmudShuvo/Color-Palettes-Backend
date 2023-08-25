@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Palette Search</title>
+</head>
+<body>
+    <h1>Palette Search</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="palette_name">Palette Name:</label>
+        <input type="text" id="palette_name" name="name">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if results %}
+    <h2>Search Results:</h2>
+    <ul>
+        {% for result in results %}
+        <li>Name: {{ result.name }}</li>
+        <li>Dominant Color 1: {{ result.dominant_color_1 }}</li>
+        {% if result.dominant_color_2 %}
+        <li>Dominant Color 2: {{ result.dominant_color_2 }}</li>
+        {% endif %}
+        <li>Accent Color 1: {{ result.accent_color_1 }}</li>
+        <li>Accent Color 2: {{ result.accent_color_2 }}</li>
+        {% if result.accent_color_3 %}
+        <li>Accent Color 3: {{ result.accent_color_3 }}</li>
+        {% endif %}
+        {% if result.accent_color_4 %}
+        <li>Accent Color 4: {{ result.accent_color_4 }}</li>
+        {% endif %}
+     
+        <li>Public: {{ result.is_public }}</li>
+       
+        <ul>
+            {% for user in result.favorites.all %}
+            <li>{{ user }}</li>
+            {% endfor %}
+        </ul>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No palettes found with that name.</p>
+    {% endif %}
+</body>
+</html>
