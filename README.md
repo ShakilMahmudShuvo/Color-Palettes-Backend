@@ -167,7 +167,39 @@ Response:
 ```
 *If you log in as a USER, your newly created palette will be automatically associated with your account, but if you log in as an admin, you can associate any new palette for any user you want*. 
 
-4. **Palette Searching by name** :
+5. **List Information for a specific palette by Using palette_id (GET, PUT, PATCH, DELETE)**:
+   ```
+       http://127.0.0.1:8000/api/v1/palettes/1/
+   ```
+   Response:
+  ```
+      {
+    "id": 1,
+    "dominant_color_1": "FFA500",
+    "dominant_color_2": "8B4513",
+    "accent_color_1": "FFD700",
+    "accent_color_2": "FF6347",
+    "accent_color_3": "FFFF00",
+    "accent_color_4": "228B22",
+    "name": "Autumn Leaves",
+    "is_public": true,
+    "user": 1,
+    "favorites": [
+        2
+    ]
+}
+```
+![instance](https://github.com/phreak1703007/Color-Palettes-Backend/assets/62479964/125fad54-e8f6-481a-ae87-2d6eb402fdec)
+
+*Must login before doing PUT,PATCH,DELETE Operation*
+If you do not login, you can just GET the information of the public paletters:
+
+![instance_without login](https://github.com/phreak1703007/Color-Palettes-Backend/assets/62479964/f0a4dd58-a1c4-4058-bbc0-3c27487b5091)
+<break>
+
+*If you try to access any private palette, you can't fetch those. Unless you are an admin user*.
+
+6. **Palette Searching by name** :
 ```
   http://127.0.0.1:8000/api/v1/palette-search/
 ```
