@@ -48,7 +48,7 @@ Follow these steps to set up and run the project:
 9. You're all set!
 
 # Some JSON Object Examples for Request/Response:
-1. **Browse public color palettes(GET)** :
+1. **Browse public color palettes(GET)** : 
    ```
        http://127.0.0.1:8000/api/v1/palettes/
    ```
@@ -81,10 +81,14 @@ Follow these steps to set up and run the project:
         "is_public": true,
         "favorites": []
     }
-] ```
+    ]
+    ```
+   This will give all the public records, even without login.
+   
 2. **LOGIN**: To login : `http://127.0.0.1:8000/api-auth/login`
- To logout: `http://127.0.0.1:8000/api-auth/logout`
-3. **Create color palettes and Manage them as an USER **: (Must Login before creating)
+
+   To logout: `http://127.0.0.1:8000/api-auth/logout`
+3. **Create color palettes and Manage them as a USER**: (Must Login before creating)
 ```
   http://127.0.0.1:8000/api/v1/palettes/
 ```
@@ -121,7 +125,7 @@ Response:
         ]
     }
 ```
-4. **Create color palettes and Manage them as an ADMIN **: (Must Login before creating):
+4. **Create color palettes and Manage them as an ADMIN**: (Must Login before creating):
 ```
   http://127.0.0.1:8000/api/v1/palettes/
 ```
@@ -155,6 +159,18 @@ Response:
         "favorites": []
     }
 ```
-If you log in as a USER, your newly created palette will be automatically associate to your account, but if you logged in as an admin, you can associate any new palette for any user you want. 
+*If you log in as a USER, your newly created palette will be automatically associated with your account, but if you log in as an admin, you can associate any new palette for any user you want*. 
+
+4. **Palette Searching by name** :
+```
+  http://127.0.0.1:8000/api/v1/palette-search/
+```
+If you go to this link, you will be redirected to this HTML page, where if you search any palette name by its name, it will fetch the related information about that palette. But it can only fetch the public ones, not the private plattes. 
+
+![search](https://github.com/phreak1703007/Color-Palettes-Backend/assets/62479964/4b1fc8d4-c906-4547-97f1-bd016fc18d81)
+
+But if there is no record with that particular name, there will be a message saying: "No palettes found with that name."
+
+
 
         
